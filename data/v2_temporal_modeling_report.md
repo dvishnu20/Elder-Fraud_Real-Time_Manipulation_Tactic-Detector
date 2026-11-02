@@ -20,7 +20,7 @@ All learned models were trained **strictly on the Train split**, with hyperparam
 | **Precision** | 0.4433 | 0.7600 | 1.0000 | **1.0000** | **+0.0000** |
 | **Recall** | 1.0000 | 1.0000 | 0.9925 | **1.0000** | **+0.0075** |
 | **Macro F1** | 0.3072 | 0.8599 | 0.9966 | **1.0000** | **+0.0034** |
-| **Calibrated Thresh** | 0.5 | 0.5 | 0.24 | **0.2** | - |
+| **Calibrated Thresh** | 0.5 | 0.5 | 0.22 | **0.22** | - |
 | **Confusion (TN/FP/FN/TP)** | 0/167/0/133 | 125/42/0/133 | 167/0/1/132 | **167/0/0/133** | - |
 | **Benign FPR** | 100.00% | 25.15% | 0.00% | **0.00%** | **+0.00%** |
 
@@ -33,9 +33,9 @@ Evaluated exclusively on prefixes $1 \dots N$ without looking at future turns.
 | Prefix Length | Eligible Dialogues | Fraud / Benign Count | ROC-AUC | PR-AUC | Precision | Recall | F1 Score | Confusion (TN/FP/FN/TP) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Turn 1** | 300 | 133 / 167 | 0.6196 | 0.5742 | 0.5301 | 0.6617 | 0.5886 | 89/78/45/88 |
-| **Turn 2** | 300 | 133 / 167 | 0.6192 | 0.5425 | 0.1765 | 0.0226 | 0.0400 | 153/14/130/3 |
-| **Turn 3** | 300 | 133 / 167 | 0.5396 | 0.5252 | 0.8750 | 0.0526 | 0.0993 | 166/1/126/7 |
-| **Turn 5** | 250 | 133 / 117 | 0.6338 | 0.7281 | 1.0000 | 0.0827 | 0.1528 | 117/0/122/11 |
+| **Turn 2** | 300 | 133 / 167 | 0.6202 | 0.5447 | 0.1765 | 0.0226 | 0.0400 | 153/14/130/3 |
+| **Turn 3** | 300 | 133 / 167 | 0.5394 | 0.5261 | 0.8750 | 0.0526 | 0.0993 | 166/1/126/7 |
+| **Turn 5** | 250 | 133 / 117 | 0.6336 | 0.7281 | 1.0000 | 0.0827 | 0.1528 | 117/0/122/11 |
 | **Turn 7** | 194 | 128 / 66 | 0.7614 | 0.8916 | 1.0000 | 0.6250 | 0.7692 | 66/0/48/80 |
 | **Full** | 300 | 133 / 167 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 167/0/0/133 |
 
@@ -43,7 +43,7 @@ Evaluated exclusively on prefixes $1 \dots N$ without looking at future turns.
 
 ## 3. Time-to-Detection (TTD) Analysis
 
-For every fraud test conversation ($N=133$), the earliest turn $t$ where predicted causal risk $\ge 0.2$ was recorded:
+For every fraud test conversation ($N=133$), the earliest turn $t$ where predicted causal risk $\ge 0.22$ was recorded:
 
 - **Total Fraud Detected:** 133 / 133 (**100.00%**)
 - **Undetected Fraud Dialogues:** 0
@@ -68,10 +68,10 @@ To evaluate whether temporal ordering contributes beyond bag-of-probabilities ac
 | Evaluation Mode | ROC-AUC | PR-AUC | F1 Score |
 | :--- | :---: | :---: | :---: |
 | **Original Chronological Sequence** | **1.0000** | **1.0000** | **1.0000** |
-| **Permuted / Shuffled Sequences (Mean $\pm$ Std)** | 0.9896 $\pm$ 0.0017 | 0.9885 $\pm$ 0.0018 | 0.8781 $\pm$ 0.0051 |
-| **Permutation Degradation ($\Delta$)** | **+0.0104** | **+0.0115** | **+0.1219** |
+| **Permuted / Shuffled Sequences (Mean $\pm$ Std)** | 0.9896 $\pm$ 0.0016 | 0.9886 $\pm$ 0.0017 | 0.8775 $\pm$ 0.0044 |
+| **Permutation Degradation ($\Delta$)** | **+0.0104** | **+0.0114** | **+0.1225** |
 
-**Finding:** Shuffling the sequence order causes a substantial **12.19 percentage point drop in F1** (1.0000 down to 0.8781). This proves that the Causal LSTM is actively exploiting **temporal order and escalation patterns**, rather than just static feature magnitude.
+**Finding:** Shuffling the sequence order causes a substantial **12.25 percentage point drop in F1** (1.0000 down to 0.8775). This proves that the Causal LSTM is actively exploiting **temporal order and escalation patterns**, rather than just static feature magnitude.
 
 ---
 
@@ -96,14 +96,14 @@ Representative test fraud escalation trace:
 
 | Turn | Speaker | Turn Text Snippet | Dominant Tactic | Tactic Probabilities [U, I, A, E, C] | Causal Prefix Risk | Flagged? |
 | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
-| 1 | `caller` | Could you please confirm if you received our recent mailer regard... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.1601** | No |
+| 1 | `caller` | Could you please confirm if you received our recent mailer regard... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.1595** | No |
 | 2 | `recipient` | Yes, I am listening. What is this concerning? | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0475** | No |
-| 3 | `caller` | We are verifying an unapproved financial request flagged under yo... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0108** | No |
-| 4 | `recipient` | An unapproved request? I didn't authorize anything! | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0023** | No |
-| 5 | `caller` | Your grandson is currently locked in a detention cell crying in a... | `emotional_destabilization` | `[0.03, 0.03, 0.02, 1.00, 0.01]` | **0.0019** | No |
+| 3 | `caller` | We are verifying an unapproved financial request flagged under yo... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0110** | No |
+| 4 | `recipient` | An unapproved request? I didn't authorize anything! | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0024** | No |
+| 5 | `caller` | Your grandson is currently locked in a detention cell crying in a... | `emotional_destabilization` | `[0.03, 0.03, 0.02, 1.00, 0.01]` | **0.0020** | No |
 | 6 | `recipient` | I'm getting in my car right now, I have the phone with me and won... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0031** | No |
-| 7 | `caller` | You have exactly twenty minutes to authorize this emergency wire ... | `urgency` | `[1.00, 0.00, 0.01, 0.01, 0.00]` | **0.5837** | **YES (FRAUD)** |
-| 8 | `recipient` | Oh goodness, I'm terrified! Please tell me what I need to do to p... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.9994** | **YES (FRAUD)** |
+| 7 | `caller` | You have exactly twenty minutes to authorize this emergency wire ... | `urgency` | `[1.00, 0.00, 0.01, 0.01, 0.00]` | **0.6483** | **YES (FRAUD)** |
+| 8 | `recipient` | Oh goodness, I'm terrified! Please tell me what I need to do to p... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.9997** | **YES (FRAUD)** |
 | 9 | `caller` | Do not tell the bank teller or anyone in your family why you are ... | `isolation` | `[0.00, 0.99, 0.01, 0.01, 0.00]` | **1.0000** | **YES (FRAUD)** |
 | 10 | `recipient` | I won't say anything to the teller, I promise; just please make s... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **1.0000** | **YES (FRAUD)** |
 | 11 | `caller` | Keep this mobile line open continuously and do not hang up while ... | `channel_control` | `[0.01, 0.02, 0.01, 0.01, 1.00]` | **1.0000** | **YES (FRAUD)** |
@@ -114,14 +114,14 @@ Representative test fraud escalation trace:
 
 | Turn | Speaker | Turn Text Snippet | Dominant Tactic | Tactic Probabilities [U, I, A, E, C] | Causal Prefix Risk | Flagged? |
 | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
-| 1 | `caller` | Thank you for answering, I have a few standard questions to updat... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.1601** | No |
+| 1 | `caller` | Thank you for answering, I have a few standard questions to updat... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.1595** | No |
 | 2 | `recipient` | Yes, I am listening. What is this concerning? | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0475** | No |
-| 3 | `caller` | We are verifying an unapproved financial request flagged under yo... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0108** | No |
-| 4 | `recipient` | An unapproved request? I didn't authorize anything! | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0023** | No |
+| 3 | `caller` | We are verifying an unapproved financial request flagged under yo... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0110** | No |
+| 4 | `recipient` | An unapproved request? I didn't authorize anything! | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0024** | No |
 | 5 | `caller` | How could you be so careless with your family's future? If you do... | `emotional_destabilization` | `[0.01, 0.02, 0.01, 1.00, 0.01]` | **0.0019** | No |
-| 6 | `recipient` | Please help me, I have my checkbook ready, how much do I need to ... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0028** | No |
-| 7 | `caller` | You have exactly twenty minutes to authorize this emergency wire ... | `urgency` | `[1.00, 0.00, 0.01, 0.01, 0.00]` | **0.5269** | **YES (FRAUD)** |
-| 8 | `recipient` | I don't understand, but I will do whatever you say officer, pleas... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.9993** | **YES (FRAUD)** |
+| 6 | `recipient` | Please help me, I have my checkbook ready, how much do I need to ... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.0029** | No |
+| 7 | `caller` | You have exactly twenty minutes to authorize this emergency wire ... | `urgency` | `[1.00, 0.00, 0.01, 0.01, 0.00]` | **0.5923** | **YES (FRAUD)** |
+| 8 | `recipient` | I don't understand, but I will do whatever you say officer, pleas... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **0.9997** | **YES (FRAUD)** |
 | 9 | `caller` | Go into a locked room right now where no one can overhear you, an... | `isolation` | `[0.00, 1.00, 0.01, 0.02, 0.01]` | **1.0000** | **YES (FRAUD)** |
 | 10 | `recipient` | I don't understand, but I will do whatever you say officer, pleas... | `none` | `[0.00, 0.00, 0.00, 0.00, 0.00]` | **1.0000** | **YES (FRAUD)** |
 | 11 | `caller` | Download the remote access utility immediately and give me the ni... | `channel_control` | `[0.01, 0.01, 0.01, 0.01, 1.00]` | **1.0000** | **YES (FRAUD)** |
@@ -141,7 +141,7 @@ Representative test fraud escalation trace:
 **YES.** While 20-feature logistic regression achieves strong static performance (F1 = 0.9962), the Causal LSTM achieves perfect test separation (F1 = 1.0000, Precision = 1.0000, Recall = 1.0000) and operates dynamically in real-time.
 
 ### 4. Does temporal ordering materially improve performance?
-**YES.** Permutation ablation reveals a **12.19 percentage point degradation in F1** when turn order is shuffled within conversations, proving significant temporal ordering sensitivity.
+**YES.** Permutation ablation reveals a **12.25 percentage point degradation in F1** when turn order is shuffled within conversations, proving significant temporal ordering sensitivity.
 
 ### 5. How early can fraud be detected?
 On average, fraud is detected at **Turn 3.15** (median: Turn 1.0). Over **66.2% of fraud dialogues are detected by Turn 3**, before high-severity fund-transfer demands occur.
@@ -151,7 +151,7 @@ The benign false-positive rate is **0.00%** (0 false alarms out of 167 benign co
 
 ### 7. Is there evidence for genuine temporal modeling value?
 **VERDICT: A — STRONG TEMPORAL VALUE**
-The Causal LSTM provides robust early prefix detection (mean turn 3.15), superior resistance to benign false positives (0.00% FPR), and exhibits substantial performance degradation (12.19 pt F1 drop) under temporal permutation.
+The Causal LSTM provides robust early prefix detection (mean turn 3.15), superior resistance to benign false positives (0.00% FPR), and exhibits substantial performance degradation (12.25 pt F1 drop) under temporal permutation.
 
 ---
 

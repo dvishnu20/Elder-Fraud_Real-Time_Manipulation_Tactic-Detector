@@ -50,7 +50,7 @@
       "macro_precision": 0.9970238095238095,
       "macro_recall": 0.9962406015037594,
       "macro_f1": 0.996620670233737,
-      "threshold": 0.24,
+      "threshold": 0.22,
       "confusion_matrix": {
         "tn": 167,
         "fp": 0,
@@ -70,7 +70,7 @@
       "macro_precision": 1.0,
       "macro_recall": 1.0,
       "macro_f1": 1.0,
-      "threshold": 0.2,
+      "threshold": 0.22,
       "confusion_matrix": {
         "tn": 167,
         "fp": 0,
@@ -102,7 +102,7 @@
         "macro_precision": 0.5971497932026615,
         "macro_recall": 0.5972941335374364,
         "macro_f1": 0.5899954443938267,
-        "threshold": 0.2,
+        "threshold": 0.22,
         "confusion_matrix": {
           "tn": 89,
           "fp": 78,
@@ -119,16 +119,16 @@
       "fraud_count": 133,
       "benign_count": 167,
       "metrics": {
-        "roc_auc": 0.619242717572374,
-        "pr_auc": 0.5424984440027784,
+        "roc_auc": 0.6202332177749763,
+        "pr_auc": 0.5447272386264208,
         "accuracy": 0.52,
         "precision": 0.17647058823529413,
         "recall": 0.022556390977443608,
         "f1": 0.04,
         "macro_precision": 0.3585533153190605,
         "macro_recall": 0.4693620278240511,
-        "macro_f1": 0.36000000000000004,
-        "threshold": 0.2,
+        "macro_f1": 0.36,
+        "threshold": 0.22,
         "confusion_matrix": {
           "tn": 153,
           "fp": 14,
@@ -145,16 +145,16 @@
       "fraud_count": 133,
       "benign_count": 167,
       "metrics": {
-        "roc_auc": 0.5396425194723335,
-        "pr_auc": 0.5251925744818817,
+        "roc_auc": 0.5394174057899239,
+        "pr_auc": 0.5260778295303179,
         "accuracy": 0.5766666666666667,
         "precision": 0.875,
         "recall": 0.05263157894736842,
         "f1": 0.09929078014184398,
         "macro_precision": 0.7217465753424658,
         "macro_recall": 0.5233217774976363,
-        "macro_f1": 0.4113011634914013,
-        "threshold": 0.2,
+        "macro_f1": 0.4113011634914014,
+        "threshold": 0.22,
         "confusion_matrix": {
           "tn": 166,
           "fp": 1,
@@ -171,16 +171,16 @@
       "fraud_count": 133,
       "benign_count": 117,
       "metrics": {
-        "roc_auc": 0.6337638969217917,
-        "pr_auc": 0.7281363648821532,
+        "roc_auc": 0.6335711072553178,
+        "pr_auc": 0.7280641582880303,
         "accuracy": 0.512,
         "precision": 1.0,
         "recall": 0.08270676691729323,
         "f1": 0.1527777777777778,
         "macro_precision": 0.7447698744769875,
         "macro_recall": 0.5413533834586466,
-        "macro_f1": 0.40504057428214735,
-        "threshold": 0.2,
+        "macro_f1": 0.4050405742821473,
+        "threshold": 0.22,
         "confusion_matrix": {
           "tn": 117,
           "fp": 0,
@@ -206,7 +206,7 @@
         "macro_precision": 0.7894736842105263,
         "macro_recall": 0.8125,
         "macro_f1": 0.7512820512820513,
-        "threshold": 0.2,
+        "threshold": 0.22,
         "confusion_matrix": {
           "tn": 66,
           "fp": 0,
@@ -232,7 +232,7 @@
         "macro_precision": 1.0,
         "macro_recall": 1.0,
         "macro_f1": 1.0,
-        "threshold": 0.2,
+        "threshold": 0.22,
         "confusion_matrix": {
           "tn": 167,
           "fp": 0,
@@ -276,19 +276,19 @@
       "f1": 1.0
     },
     "shuffled_test_metrics_mean": {
-      "roc_auc": 0.9895862410517312,
-      "pr_auc": 0.9885448923500965,
-      "f1": 0.8780905249835109
+      "roc_auc": 0.9895884921885552,
+      "pr_auc": 0.9885532295401462,
+      "f1": 0.8774999209566653
     },
     "shuffled_test_metrics_std": {
-      "roc_auc": 0.0016790583552557003,
-      "pr_auc": 0.0018023601895691195,
-      "f1": 0.005074469120087297
+      "roc_auc": 0.001611262091528177,
+      "pr_auc": 0.0017244017296384698,
+      "f1": 0.004433712361118099
     },
     "degradation_deltas": {
-      "delta_roc_auc": 0.010413758948268792,
-      "delta_pr_auc": 0.01145510764990354,
-      "delta_f1": 0.12190947501648908
+      "delta_roc_auc": 0.010411507811444842,
+      "delta_pr_auc": 0.011446770459853761,
+      "delta_f1": 0.12250007904333471
     },
     "num_permutation_seeds": 10
   },
@@ -315,7 +315,7 @@
             "emotional_destabilization": 0.000590000010561198,
             "channel_control": 0.0006900000153109431
           },
-          "lstm_prefix_risk": 0.16009236872196198,
+          "lstm_prefix_risk": 0.15950652956962585,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -330,7 +330,7 @@
             "emotional_destabilization": 0.0010300000431016088,
             "channel_control": 0.00046999999904073775
           },
-          "lstm_prefix_risk": 0.04747290164232254,
+          "lstm_prefix_risk": 0.04747750237584114,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -345,7 +345,7 @@
             "emotional_destabilization": 0.001509999972768128,
             "channel_control": 0.0005000000237487257
           },
-          "lstm_prefix_risk": 0.010840765200555325,
+          "lstm_prefix_risk": 0.01095390785485506,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -360,7 +360,7 @@
             "emotional_destabilization": 0.0016499999910593033,
             "channel_control": 0.0004299999854993075
           },
-          "lstm_prefix_risk": 0.0023326121736317873,
+          "lstm_prefix_risk": 0.002398839918896556,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -375,7 +375,7 @@
             "emotional_destabilization": 0.9987199902534485,
             "channel_control": 0.01336000021547079
           },
-          "lstm_prefix_risk": 0.0019385472405701876,
+          "lstm_prefix_risk": 0.0019911769777536392,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "emotional_destabilization"
         },
@@ -390,7 +390,7 @@
             "emotional_destabilization": 0.0011399999493733048,
             "channel_control": 0.0003600000054575503
           },
-          "lstm_prefix_risk": 0.003098627319559455,
+          "lstm_prefix_risk": 0.00311517296358943,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -405,7 +405,7 @@
             "emotional_destabilization": 0.010850000195205212,
             "channel_control": 0.004749999847263098
           },
-          "lstm_prefix_risk": 0.5836727619171143,
+          "lstm_prefix_risk": 0.6482783555984497,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "urgency"
         },
@@ -420,7 +420,7 @@
             "emotional_destabilization": 0.003530000103637576,
             "channel_control": 0.0005099999834783375
           },
-          "lstm_prefix_risk": 0.9994251728057861,
+          "lstm_prefix_risk": 0.9997301697731018,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         },
@@ -435,7 +435,7 @@
             "emotional_destabilization": 0.01145000010728836,
             "channel_control": 0.0035200000274926424
           },
-          "lstm_prefix_risk": 0.9999920129776001,
+          "lstm_prefix_risk": 0.9999977350234985,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "isolation"
         },
@@ -450,7 +450,7 @@
             "emotional_destabilization": 0.0008900000248104334,
             "channel_control": 0.00044999999227002263
           },
-          "lstm_prefix_risk": 0.999998927116394,
+          "lstm_prefix_risk": 0.9999997615814209,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         },
@@ -465,7 +465,7 @@
             "emotional_destabilization": 0.006140000186860561,
             "channel_control": 0.9988999962806702
           },
-          "lstm_prefix_risk": 0.9999994039535522,
+          "lstm_prefix_risk": 0.9999998807907104,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "channel_control"
         },
@@ -480,7 +480,7 @@
             "emotional_destabilization": 0.000699999975040555,
             "channel_control": 0.0005099999834783375
           },
-          "lstm_prefix_risk": 0.9999995231628418,
+          "lstm_prefix_risk": 0.9999998807907104,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         }
@@ -502,7 +502,7 @@
             "emotional_destabilization": 0.0008699999889358878,
             "channel_control": 0.0006799999973736703
           },
-          "lstm_prefix_risk": 0.16007749736309052,
+          "lstm_prefix_risk": 0.1594916433095932,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -517,7 +517,7 @@
             "emotional_destabilization": 0.0010300000431016088,
             "channel_control": 0.00046999999904073775
           },
-          "lstm_prefix_risk": 0.0474679172039032,
+          "lstm_prefix_risk": 0.047472499310970306,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -532,7 +532,7 @@
             "emotional_destabilization": 0.001509999972768128,
             "channel_control": 0.0005000000237487257
           },
-          "lstm_prefix_risk": 0.010839702561497688,
+          "lstm_prefix_risk": 0.010952829383313656,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -547,7 +547,7 @@
             "emotional_destabilization": 0.0016499999910593033,
             "channel_control": 0.0004299999854993075
           },
-          "lstm_prefix_risk": 0.002332450356334448,
+          "lstm_prefix_risk": 0.0023986732121556997,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -562,7 +562,7 @@
             "emotional_destabilization": 0.998199999332428,
             "channel_control": 0.009460000321269035
           },
-          "lstm_prefix_risk": 0.0018664650851860642,
+          "lstm_prefix_risk": 0.0019180959789082408,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "emotional_destabilization"
         },
@@ -577,7 +577,7 @@
             "emotional_destabilization": 0.0008500000112690032,
             "channel_control": 0.0007399999885819852
           },
-          "lstm_prefix_risk": 0.002840515226125717,
+          "lstm_prefix_risk": 0.0028710600454360247,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -592,7 +592,7 @@
             "emotional_destabilization": 0.010850000195205212,
             "channel_control": 0.004749999847263098
           },
-          "lstm_prefix_risk": 0.5269192457199097,
+          "lstm_prefix_risk": 0.5922891497612,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "urgency"
         },
@@ -607,7 +607,7 @@
             "emotional_destabilization": 0.000699999975040555,
             "channel_control": 0.0005099999834783375
           },
-          "lstm_prefix_risk": 0.9993471503257751,
+          "lstm_prefix_risk": 0.9996892213821411,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         },
@@ -622,7 +622,7 @@
             "emotional_destabilization": 0.020989999175071716,
             "channel_control": 0.007459999993443489
           },
-          "lstm_prefix_risk": 0.9999915361404419,
+          "lstm_prefix_risk": 0.999997615814209,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "isolation"
         },
@@ -637,7 +637,7 @@
             "emotional_destabilization": 0.000699999975040555,
             "channel_control": 0.0005099999834783375
           },
-          "lstm_prefix_risk": 0.999998927116394,
+          "lstm_prefix_risk": 0.9999997615814209,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         },
@@ -652,7 +652,7 @@
             "emotional_destabilization": 0.009189999662339687,
             "channel_control": 0.998740017414093
           },
-          "lstm_prefix_risk": 0.9999994039535522,
+          "lstm_prefix_risk": 0.9999998807907104,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "channel_control"
         },
@@ -667,7 +667,7 @@
             "emotional_destabilization": 0.000699999975040555,
             "channel_control": 0.0005099999834783375
           },
-          "lstm_prefix_risk": 0.9999995231628418,
+          "lstm_prefix_risk": 0.9999998807907104,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         }
@@ -689,7 +689,7 @@
             "emotional_destabilization": 0.0005600000149570405,
             "channel_control": 0.0002500000118743628
           },
-          "lstm_prefix_risk": 0.16152364015579224,
+          "lstm_prefix_risk": 0.1609261929988861,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -704,7 +704,7 @@
             "emotional_destabilization": 0.0010300000431016088,
             "channel_control": 0.00046999999904073775
           },
-          "lstm_prefix_risk": 0.04810634255409241,
+          "lstm_prefix_risk": 0.04810642451047897,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -719,7 +719,7 @@
             "emotional_destabilization": 0.001509999972768128,
             "channel_control": 0.0005000000237487257
           },
-          "lstm_prefix_risk": 0.011013446375727654,
+          "lstm_prefix_risk": 0.011126644909381866,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -734,7 +734,7 @@
             "emotional_destabilization": 0.0016499999910593033,
             "channel_control": 0.0004299999854993075
           },
-          "lstm_prefix_risk": 0.0023711167741566896,
+          "lstm_prefix_risk": 0.002437909599393606,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -749,7 +749,7 @@
             "emotional_destabilization": 0.9984700083732605,
             "channel_control": 0.011649999767541885
           },
-          "lstm_prefix_risk": 0.0019173631444573402,
+          "lstm_prefix_risk": 0.001969603355973959,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "emotional_destabilization"
         },
@@ -764,7 +764,7 @@
             "emotional_destabilization": 0.0008500000112690032,
             "channel_control": 0.0007399999885819852
           },
-          "lstm_prefix_risk": 0.0029419914353638887,
+          "lstm_prefix_risk": 0.0029661860316991806,
           "predicted_fraud_at_turn": false,
           "dominant_tactic": "none"
         },
@@ -779,7 +779,7 @@
             "emotional_destabilization": 0.013620000332593918,
             "channel_control": 0.002859999891370535
           },
-          "lstm_prefix_risk": 0.5472832322120667,
+          "lstm_prefix_risk": 0.6126329898834229,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "urgency"
         },
@@ -794,7 +794,7 @@
             "emotional_destabilization": 0.0011399999493733048,
             "channel_control": 0.0003600000054575503
           },
-          "lstm_prefix_risk": 0.9993727803230286,
+          "lstm_prefix_risk": 0.9997027516365051,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         },
@@ -809,7 +809,7 @@
             "emotional_destabilization": 0.010409999638795853,
             "channel_control": 0.004939999897032976
           },
-          "lstm_prefix_risk": 0.9999916553497314,
+          "lstm_prefix_risk": 0.9999977350234985,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "isolation"
         },
@@ -824,7 +824,7 @@
             "emotional_destabilization": 0.0008900000248104334,
             "channel_control": 0.00044999999227002263
           },
-          "lstm_prefix_risk": 0.999998927116394,
+          "lstm_prefix_risk": 0.9999997615814209,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         },
@@ -839,7 +839,7 @@
             "emotional_destabilization": 0.0043299999088048935,
             "channel_control": 0.9986600279808044
           },
-          "lstm_prefix_risk": 0.9999994039535522,
+          "lstm_prefix_risk": 0.9999998807907104,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "channel_control"
         },
@@ -854,7 +854,7 @@
             "emotional_destabilization": 0.003530000103637576,
             "channel_control": 0.0005099999834783375
           },
-          "lstm_prefix_risk": 0.9999995231628418,
+          "lstm_prefix_risk": 0.9999998807907104,
           "predicted_fraud_at_turn": true,
           "dominant_tactic": "none"
         }

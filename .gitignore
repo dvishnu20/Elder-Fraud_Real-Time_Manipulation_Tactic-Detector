@@ -70,7 +70,7 @@ coverage.xml
 # Large data files
 *.jsonl.bak
 *.csv.bak
-data/raw/
+# data/raw/
 data/external/
 
 # Compiled ML artifacts (keep reports, not binary models)

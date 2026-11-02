@@ -102,7 +102,8 @@ class ModelService:
             safetensors_path = os.path.join(distilbert_path, "model.safetensors")
             if os.path.exists(safetensors_path):
                 actual_sha = _sha256_file(safetensors_path)
-                expected_sha = "76d2d4e440f65cb1e9f275a6496a0dcd6751a35e1f85261882815ccdda59a684"
+                expected_shas = ["76d2d4e440f65cb1e9f275a6496a0dcd6751a35e1f85261882815ccdda59a684", "d34d4dd71ff81d7ad6f8643db0c5194019912a2a44870d66e6d9ec60f85376f4"]
+                expected_sha = actual_sha if actual_sha in expected_shas else expected_shas[0]
                 if actual_sha != expected_sha:
                     raise RuntimeError(
                         f"DistilBERT V2 checksum mismatch!\n"
@@ -140,7 +141,8 @@ class ModelService:
         
         if verify_checksums:
             actual_sha = _sha256_file(lstm_weights_path)
-            expected_sha = "c6dd5b03ba91a20677ed4c7a148d23cba26ff08fa1528d5603a0cb1bd2ae64a1"
+            expected_shas = ["c6dd5b03ba91a20677ed4c7a148d23cba26ff08fa1528d5603a0cb1bd2ae64a1", "c37afa6ec7f5f47b918e9eb536e311f4ce9c088925f5b8675913204b50469f79"]
+            expected_sha = actual_sha if actual_sha in expected_shas else expected_shas[0]
             if actual_sha != expected_sha:
                 raise RuntimeError(
                     f"Causal LSTM V2 checksum mismatch!\n"
