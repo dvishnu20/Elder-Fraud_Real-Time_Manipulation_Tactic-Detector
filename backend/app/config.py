@@ -25,6 +25,13 @@ class Settings(BaseSettings):
     RISK_BAND_ELEVATED: float = 0.20
     RISK_BAND_HIGH: float = 0.50
     RISK_BAND_CRITICAL: float = 0.80
+
+    # Risk Engine compatibility aliases
+    RISK_THRESHOLD_LOW: float = 0.10
+    RISK_THRESHOLD_GUARDED: int = 20
+    RISK_THRESHOLD_MEDIUM: float = 0.20
+    RISK_THRESHOLD_HIGH: int = 50
+    RISK_THRESHOLD_CRITICAL: int = 80
     
     # ASR
     ASR_PROVIDER: str = "mock"  # mock, replay, whisper_local
